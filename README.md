@@ -23,7 +23,7 @@ Change your Django Application's `wsgi.py` to be:
 
 ```
 """
-WSGI config for citrus project.
+WSGI config for YOUR_PROJECT_NAME project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -36,7 +36,7 @@ import os
 from caduceus.wsgi import Caduceus
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "citrus.settings.dev")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "YOUR_PROJECT_NAME.settings.dev")
 
 tenant_id = 'YOUR-TENANT-ID'
 application = Caduceus(get_wsgi_application(), tenant_id)
