@@ -1,7 +1,5 @@
-.. figure:: ./img/caduceus-logo.png
+.. figure:: https://github.com/davydany/caduceus/raw/master/img/caduceus-logo.png
    :alt: caduceus
-
-   caduceus
 
 Caduceus
 ========
