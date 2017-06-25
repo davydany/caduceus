@@ -1,6 +1,12 @@
 .. figure:: https://github.com/davydany/caduceus/raw/master/img/caduceus-logo.png
    :alt: caduceus
 
+.. image:: https://travis-ci.org/davydany/caduceus.svg?branch=master
+    :target: https://travis-ci.org/davydany/caduceus
+
+.. image:: https://badge.fury.io/py/caduceus.svg
+    :target: https://badge.fury.io/py/caduceus
+
 Caduceus
 ========
 
