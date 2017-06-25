@@ -49,5 +49,4 @@ class Caduceus(BaseClass):
             monitor.disable_monitor()
             monitor.record_metric(response_id)
 
-        print("response: ", response.content)
         return response

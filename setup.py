@@ -8,7 +8,7 @@ with open("./VERSION") as f:
 
 setup(
     name='caduceus',
-    description='Inspect your WSGI requests!',
+    description='Monitor your requests',
     long_description=LONG_DESCRIPTION,
     version=VERSION,
     author='David Daniel',
