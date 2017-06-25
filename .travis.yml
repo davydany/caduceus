@@ -1,0 +1,16 @@
+language: python
+python:
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- '3.6'
+deploy:
+  provider: pypi
+  distributions: bdist_wheel
+  user:davydany: 
+  on:
+    repo: davydany/caduceus
+    branch: master
+  password:
+    secure: WNxO0lhylSg5BjE0jckB3IRBiBRAfVidV1sHGStelK1sKh/lqK4R/IXqlLP2R7r9pzE0oOpI/lQqMP+jrccJyy6yzN33y3APgiDXv/poYoI6SDX1jQJDrCW/hBpBXHEGchNoNPHePB1Xz0vzzFcZ3LtDP1YkFZXGiXh/rkvqE2la5NnTe/kfFcD2Sns/aSL4/aXFDPy+5rwOSFGzQj1WiBKK7FLumlVA8qKw8nuVnwJUACvYAAIG/aNZHe6XVdsQak1bbybNsLyFtPvd4NC5EpAXKACh4bKFwBmil6J+bRvFTKze9YjMVecJPNasPI7ymV4+XetmXuEjl8Q2GqWXHy3Y5dDcl5qyYR443DsLh/mPcUv+m+0ZrBKjRZcc6cUOzv9eZC8xeCBWeypn6SFLlJAnABir05gzqORrtt4G+WFBr2oQVnOxGoTfNkdRshJmbN5s0fgevWBdlivUfY+XQ/y8rKdiZV41nNIoqun/wPx8WdtfpJYohyyuEDifcLbKYPgpv1p002Eeu4SFDpq2vV/8J4Yig9Oxa3DRy+5A343yn8VW6FPshVjCF/cuZm7CsEnibCGrE4Ua8dP7MHxhi2d140DDL2pKiCTKCs1IsFeBRQECFCnQyLCuRxpOL27eBkFJjztHYj6djK4betgnIm0jc4rcff5hBQ89utOiLBI=
