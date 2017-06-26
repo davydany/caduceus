@@ -17,6 +17,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     url='http://github.com/davydany/caduceus',
+    install_requires=['requests>=2.15', 'Django>1.10'],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
@@ -25,8 +26,6 @@ setup(
         "Operating System :: MacOS",
         "Operating System :: MacOS :: MacOS X",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",

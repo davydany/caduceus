@@ -19,11 +19,18 @@ logger = logging.getLogger('caduceus')
 
 class RequestThread(threading.Thread):
 
+    def __init__(self, *args, **kwargs):
+
+        super(RequestThread, self).__init__(*args, **kwargs)
+
+        # default error message (easier for debugging)
+        self.response = "Request Failed due to Caduceus"
+
     def run(self):
 
-        target = self._target
+        application = self._target
         args = self._args
-        self.response = target(*args)
+        self.response = application(*args)
 
 class Caduceus(BaseClass):
 
@@ -50,6 +57,7 @@ class Caduceus(BaseClass):
             request.start()
             request.join()
             response = request.response
+            # response = self.application(environ, start_response)
 
             for monitor in monitors:
                 monitor.disable_monitor()

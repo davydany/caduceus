@@ -16,6 +16,8 @@ details about what happens behind the scenes on each of your requests.
 Install
 -------
 
+**NOTE:** Caduceus needs Python 3 to run.
+
 .. code:: bash
 
     pip install --upgrade caduceus
