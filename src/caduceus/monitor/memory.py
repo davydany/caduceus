@@ -27,7 +27,7 @@ def tracer(frame, event, arg):
         # Now inspect the application
         for name, value in frame.f_locals.items():
             MEMORY_CACHE['local_vars'][name] = value
-            print("%s >>>>>> %s" % (name, value))
+
     return tracer
 
 

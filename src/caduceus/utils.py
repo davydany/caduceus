@@ -24,8 +24,10 @@ def local_django_apps():
     # where we will collect the final set of local apps
     LOCAL_APPS = []
 
-    # now traverse the django BASE_DIR (which is available for all projects)
-    for traversal in os.walk(settings.BASE_DIR):
+    # now traverse the parent of the django BASE_DIR 
+    # (which is available for all projects)
+    root_dir = os.path.dirname(settings.BASE_DIR)
+    for traversal in os.walk(root_dir):
 
         # traversal = dirpath, dirnames, filenames
         dirpath, dirnames = traversal[0], traversal[1]
