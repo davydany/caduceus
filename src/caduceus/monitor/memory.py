@@ -32,6 +32,7 @@ def tracer(frame, event, arg):
 
 class MemoryMonitor(BaseMonitor):
 
+    monitor_name = 'tracer'
 
     def enable_monitor(self):
 

@@ -3,6 +3,8 @@ from caduceus.monitor import BaseMonitor
 
 class TimerMonitor(BaseMonitor):
 
+    monitor_name = 'timer'
+
     def enable_monitor(self):
 
         self.start_time = datetime.datetime.now()

@@ -7,6 +7,7 @@ from wsgiref import simple_server
 from caduceus import BaseClass
 from caduceus.monitor.timer import TimerMonitor
 from caduceus.monitor.memory import MemoryMonitor
+from caduceus.recorder import Recorder, MetricsRecorder
 
 AVAILABLE_MONITORS = (
     TimerMonitor,
@@ -26,27 +27,37 @@ class RequestThread(threading.Thread):
 
 class Caduceus(BaseClass):
 
-
-    def __init__(self, application, tenant_code):
+    def __init__(self, application, project_id, activate=True, debug=False, report=True):
 
         self.application = application
-        self.tenant_code = tenant_code
+        self.project_id = project_id
+
+        self.activate = activate
+        self.debug = debug
+        self.report = report
 
     def __call__(self, environ, start_response):
 
-        response_id = str(uuid.uuid4())
-        monitors = [MonitorClass() for MonitorClass in AVAILABLE_MONITORS]
+        if self.activate:
+            # only run Caduceus if we have it activated.
+            response_id = str(uuid.uuid4())
+            monitors = [MonitorClass() for MonitorClass in AVAILABLE_MONITORS]
 
-        for monitor in monitors:
-            monitor.enable_monitor()
+            for monitor in monitors:
+                monitor.enable_monitor()
 
-        request = RequestThread(target=self.application, args=(environ, start_response, ))
-        request.start()
-        request.join()
-        response = request.response
+            request = RequestThread(target=self.application, args=(environ, start_response, ))
+            request.start()
+            request.join()
+            response = request.response
 
-        for monitor in monitors:
-            monitor.disable_monitor()
-            monitor.record_metric(response_id)
+            for monitor in monitors:
+                monitor.disable_monitor()
+                monitor.record_metric(response_id)
 
-        return response
+            Recorder.flush(self.project_id, response_id, debug=self.debug, report=self.report)
+            return response
+
+        else:
+            response = self.application(environ, start_response)
+            return response
